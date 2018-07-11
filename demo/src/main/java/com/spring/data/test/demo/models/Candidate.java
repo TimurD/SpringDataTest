@@ -1,7 +1,5 @@
 package com.spring.data.test.demo.models;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

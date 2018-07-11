@@ -17,10 +17,8 @@ public class Skill {
 
 	private String name;
 
-/*
 	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "skills")
-*/
-	/*private List<Candidate> candidates;*/
+	private List<Candidate> candidates;
 
 	public Long getId() {
 		return id;
@@ -36,6 +34,14 @@ public class Skill {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<Candidate> getCandidates() {
+		return candidates;
+	}
+
+	public void setCandidates(List<Candidate> candidates) {
+		this.candidates = candidates;
 	}
 
 	@Override

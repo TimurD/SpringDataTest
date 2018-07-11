@@ -1,7 +1,9 @@
 package com.spring.data.test.demo;
 
 import com.spring.data.test.demo.dao.CandidateDAO;
+import com.spring.data.test.demo.dao.CandidateMongoDAO;
 import com.spring.data.test.demo.dao.SkillDAO;
+import com.spring.data.test.demo.dao.SkillMongoDAO;
 import com.spring.data.test.demo.models.Candidate;
 import com.spring.data.test.demo.models.Skill;
 import org.junit.Test;
@@ -16,13 +18,12 @@ import java.util.Collections;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class DemoApplicationTests {
+public class JpaRepositoryTest {
 
 	@Autowired
 	private CandidateDAO candidateDAO;
 	@Autowired
 	private SkillDAO skillDAO;
-
 	@Test
 	public void selectCandidateByIdTest() {
 		Candidate candidate = candidateDAO.findById(1L).get();
@@ -37,7 +38,7 @@ public class DemoApplicationTests {
 	@Test
 	public void selectCandidatesBySkillTest() {
 		Skill skill = skillDAO.findById(1L).get();
-		/*skill.getCandidates().forEach(System.out::println);*/
+		skill.getCandidates().forEach(System.out::println);
 	}
 
 	@Test
@@ -57,8 +58,7 @@ public class DemoApplicationTests {
 	}
 
 	@Test
-	public void test() {
+	public void findTop2ByOrderByLastNameDescTest() {
 		candidateDAO.findTop2ByOrderByLastNameDesc().forEach(System.out::println);
 	}
-
 }
